@@ -34,7 +34,7 @@ def main():
     run_single(THREADS, HASHCLASH_ROOT)
 
 
-HASHCLASH_ROOT = '/home/isaac/workbench/crypto/hashclash'
+HASHCLASH_ROOT = './hashclash' # change to be where you hashclash project root is located
 THREADS = 8
 
 if __name__ == '__main__':
