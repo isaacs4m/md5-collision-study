@@ -86,3 +86,26 @@ Esse gráfico serve bem para demonstrar como a parte inicial (_birthday search_)
 ### Média de custo por atividade em centavos
 
 ![Média de custo por atividade](graphs/energy_cost_by_activity.png)
+
+---
+
+## 6 · Relatório de andamento
+
+### 6.1 Visão geral
+| Métrica | Proposta inicial | Resultado obtido |
+|---------|-----------------|------------------|
+| Tempo máximo de execução | ≤ 120 minutos no ambiente especificado para colisão com prefixo | **224 minutos** (média de 3 execuções) |
+| Custo de energia estimado | ≤ R$ 1 por colisão | **≈ R$ 0,24** |
+| Análise de custo de energia | Medir a energia do computador inteiro | Medir a energia somente da CPU |
+| Reprodutibilidade | Script único (`runme.sh`) | Script + log + gráfico |
+
+### 6.2 Principais dificuldades
+1. **Extração de métricas de energia em tempo real**  
+   Inicialmente tentativa com `powertop` (amostragem irregular). Adotado `intel_rapl` via comando `perf`.
+
+### 6.3 Lições aprendidas
+* **Birthday search é o gargalo absoluto** – paralelização em GPU é a otimização de maior impacto.
+* **Custo energético importa**: mesmo com tarefa curta, medir e mostrar o preço em reais ajuda a traduzir a viabilidade de ataques.
+* **MD5 é muito inseguro**: além do curto tempo para achar uma colisão, ainda é pouco custoso financeiramente, então não há malefícios significativos para desmotivar o atacante.
+
+---
